@@ -28,13 +28,15 @@ public class Player {
         int currentBuyIn = requestObject.get("current_buy_in").getAsInt();
 
         int maxBetValue = CardUtils.checkHoleCards(holeCards);
+        System.out.println("Max bet before increase: " + maxBetValue);
 
         if (communityCards.size() > 0) {
             int betIncrease = CardUtils.checkCommunityCards(holeCards, communityCards);
             maxBetValue += betIncrease;
+            System.out.println("Max bet after increase: " + maxBetValue);
             if (currentBuyIn <= 0.3 * maxBetValue && maxBetValue > 400) {
                 return currentBuyIn - bet + 50;
-            } else if (maxBetValue > 300) {
+            } else if (maxBetValue > 150) {
                 return currentBuyIn - bet;
             }
         }
