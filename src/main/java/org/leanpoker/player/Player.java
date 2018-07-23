@@ -32,7 +32,7 @@ public class Player {
                 System.out.println("Check");
                 return 10;
             }
-            return minimumRaise;
+            return currentBuyIn - bet + minimumRaise;
         }
         return 10;
     }
