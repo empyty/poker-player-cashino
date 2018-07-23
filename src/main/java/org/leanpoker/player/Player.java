@@ -34,6 +34,8 @@ public class Player {
             maxBetValue += betIncrease;
             if (currentBuyIn <= 0.3 * maxBetValue && maxBetValue > 400) {
                 return currentBuyIn - bet + 50;
+            } else if (maxBetValue > 600) {
+                return currentBuyIn - bet;
             }
         }
         if (bet + minimumRaise <= maxBetValue) {
