@@ -10,6 +10,8 @@ public class Player {
 
     public static int betRequest(JsonElement request) {
         System.out.println(request.getAsJsonObject().get("players").getAsJsonArray()[4]);
+        System.out.println("Wirek test");
+        System.out.println(request.getAsJsonObject().get("players").getAsJsonObject().get("Cashino").getAsJsonArray());
         System.out.println(request.getAsJsonObject());
         return 10;
     }
