@@ -9,4 +9,20 @@ public class CardUtils {
         return Math.abs(card1Value - card2Value) > 1;
     }
 
+//    public static void checkCards(List playerCards) {
+//        if (playerCards[1] == playerCards[2]) {
+//
+//        } else if ((playerCards[1] = playerCards[2] + 1 || playerCards[2] = playerCards[1] + 1) ||
+//                (playerCards[1] == 13 && playerCards[2] == 1 || playerCards[1] == 1 && playerCards[2] == 13) &&
+//                        playerCards[1].suit == playerCards[2].suit) {
+//
+//        } else if (playerCards[1] = playerCards[2] + 1 || playerCards[2] = playerCards[1] + 1 ||
+//                (playerCards[1] == 13 && playerCards[2] == 1) || (playerCards[1] == 1 && playerCards[2] == 13)) {
+//
+//        } else if (playerCards[1].suit == playerCards[2].suit) {
+//
+//        } else {
+//
+//        }
+//    }
 }
