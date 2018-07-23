@@ -32,7 +32,7 @@ public class Player {
         if (bet + minimumRaise < maxBetValue) {
             return minimumRaise;
         }
-        return 0;
+        return 10;
     }
 
     public static void showdown(JsonElement game) {
