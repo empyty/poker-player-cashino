@@ -10,7 +10,7 @@ public class Player {
     private String name;
 
     public static int betRequest(JsonElement request) {
-        System.out.println(request.getAsJsonObject().get("players").getAsJsonArray().get(4));
+        System.out.println(request.getAsJsonObject().get("players").getAsJsonArray().get(4).get("hole_cards"));
 
         return 10;
     }
