@@ -23,6 +23,7 @@ public class Player {
         List<Card> communityCards = setCards(jsonCommunityCards);
 //        int pot = requestObject.get("pot").getAsInt();
         int bet = ourPlayer.getAsJsonObject().get("bet").getAsInt();
+        int stack = ourPlayer.getAsJsonObject().get("stack").getAsInt();
         int minimumRaise = requestObject.get("minimum_raise").getAsInt();
         int currentBuyIn = requestObject.get("current_buy_in").getAsInt();
 
@@ -32,7 +33,7 @@ public class Player {
             int betIncrease = CardUtils.checkCommunityCards(holeCards, communityCards);
             maxBetValue += betIncrease;
             if (currentBuyIn <= 0.3 * maxBetValue && maxBetValue > 400) {
-                return currentBuyIn - bet + minimumRaise;
+                return currentBuyIn - bet + 50;
             }
         }
         if (bet + minimumRaise <= maxBetValue) {
