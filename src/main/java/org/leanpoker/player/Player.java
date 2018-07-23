@@ -15,22 +15,26 @@ public class Player {
     private static final int playerId = 4;
 
     private static String name;
-    private static List<Card> holeCards = new ArrayList<>();
+    private static List<Card> holeCards = new ArrayList<>(2);
 
     public static int betRequest(JsonElement request) {
         JsonObject requestObject = request.getAsJsonObject();
         JsonElement ourPlayer = requestObject.get("players").getAsJsonArray().get(playerId);
         JsonArray ourCards = ourPlayer.getAsJsonObject().get("hole_cards").getAsJsonArray();
-        for (JsonElement jsonCard : ourCards) {
-            String rank = jsonCard.getAsJsonObject().get("rank").getAsString();
-            String suit = jsonCard.getAsJsonObject().get("suit").getAsString();
-            Card card = new Card(suit, rank);
-            holeCards.add(card);
-            System.out.println(card);
-        }
+        setHoleCards(ourCards);
         return 10;
     }
 
     public static void showdown(JsonElement game) {
+    }
+
+    public static void setHoleCards(JsonArray playerCards) {
+        for (JsonElement jsonCard : playerCards) {
+            String rank = jsonCard.getAsJsonObject().get("rank").getAsString();
+            String suit = jsonCard.getAsJsonObject().get("suit").getAsString();
+            Card card = new Card(suit, rank);
+            holeCards.add(card);
+            System.out.println("Adding: " + card);
+        }
     }
 }

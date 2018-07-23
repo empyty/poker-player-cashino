@@ -24,7 +24,7 @@ public enum Suit {
 
     @Override
     public String toString() {
-        return String.valueOf(this.value);
+        return String.valueOf(this.name);
     }
 }
 
