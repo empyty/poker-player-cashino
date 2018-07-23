@@ -30,7 +30,7 @@ public class Player {
         if (bet + minimumRaise <= maxBetValue) {
             if (currentBuyIn == bet && bet != 0) {
                 System.out.println("Check");
-                return 10;
+                return 0;
             }
             return currentBuyIn - bet + minimumRaise;
         }
