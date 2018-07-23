@@ -13,6 +13,7 @@ public class Player {
         System.out.println(request.getAsJsonObject());
         System.out.println("Wirek test");
         System.out.println(request.getAsJsonObject().get("players").getAsJsonObject().get("Cashino").getAsJsonArray());
+        System.out.println("super test");
         return 10;
     }
 
