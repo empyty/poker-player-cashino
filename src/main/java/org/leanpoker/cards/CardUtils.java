@@ -1,5 +1,6 @@
 package org.leanpoker.cards;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CardUtils {
@@ -46,6 +47,23 @@ public class CardUtils {
     }
 
     public static int checkCommunityCards(List<Card> holeCards, List<Card> communityCards) {
-        return 0;
+        int increaseBet = 0;
+        for (Card holeCard : holeCards) {
+            for (Card communityCard : communityCards) {
+                List<Card> combination = new ArrayList<>();
+                combination.add(holeCard);
+                combination.add(communityCard);
+                if (areSameRank(combination)) {
+                    increaseBet += 100;
+                }
+                if (areSameSuit(combination)) {
+                    increaseBet += 50;
+                }
+                if (areConsecutive(combination)) {
+                    increaseBet += 25;
+                }
+            }
+        }
+        return increaseBet;
     }
 }

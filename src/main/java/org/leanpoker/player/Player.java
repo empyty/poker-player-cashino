@@ -28,14 +28,19 @@ public class Player {
 
         int maxBetValue = CardUtils.checkHoleCards(holeCards);
 
+        if (communityCards.size() > 0) {
+            int betIncrease = CardUtils.checkCommunityCards(holeCards, communityCards);
+            maxBetValue += betIncrease;
+            if (currentBuyIn <= 0.3 * maxBetValue && maxBetValue > 400) {
+                return currentBuyIn - bet + minimumRaise;
+            }
+        }
         if (bet + minimumRaise <= maxBetValue) {
             if (currentBuyIn == bet && bet != 0) {
                 System.out.println("Check");
                 return 0;
             }
-//            if (communityCards.size() > 0) {
-//                return currentBuyIn - bet + minimumRaise;
-//            }
+
             return currentBuyIn - bet;
         }
         return 0;
