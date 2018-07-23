@@ -15,27 +15,23 @@ public class Player {
     static final String VERSION = "Testing betting";
     private static final int playerId = 4;
 
-    private static String name;
-    private static List<Card> holeCards;
-    private static int maxBetValue;
-
     public static int betRequest(JsonElement request) {
         JsonObject requestObject = request.getAsJsonObject();
         JsonElement ourPlayer = requestObject.get("players").getAsJsonArray().get(playerId);
         JsonArray ourCards = ourPlayer.getAsJsonObject().get("hole_cards").getAsJsonArray();
-        setHoleCards(ourCards);
+        List<Card> cards = setHoleCards(ourCards);
 //        int pot = requestObject.get("pot").getAsInt();
         int bet = ourPlayer.getAsJsonObject().get("bet").getAsInt();
         int minimumRaise = requestObject.get("minimum_raise").getAsInt();
         int currentBuyIn = requestObject.get("current_buy_in").getAsInt();
-        maxBetValue = CardUtils.checkCards(holeCards);
 
-        if (currentBuyIn == bet) {
-            System.out.println("Check");
-            return 10;
-        }
+        int maxBetValue = CardUtils.checkCards(cards);
 
         if (bet + minimumRaise <= maxBetValue) {
+            if (currentBuyIn == bet && bet != 0) {
+                System.out.println("Check");
+                return 0;
+            }
             return minimumRaise;
         }
         return 10;
@@ -44,8 +40,8 @@ public class Player {
     public static void showdown(JsonElement game) {
     }
 
-    public static void setHoleCards(JsonArray playerCards) {
-        holeCards = new ArrayList<>(2);
+    public static List<Card> setHoleCards(JsonArray playerCards) {
+        List<Card> holeCards = new ArrayList<>(2);
         for (JsonElement jsonCard : playerCards) {
             String rank = jsonCard.getAsJsonObject().get("rank").getAsString();
             String suit = jsonCard.getAsJsonObject().get("suit").getAsString();
@@ -53,6 +49,7 @@ public class Player {
             holeCards.add(card);
             System.out.println("Adding: " + card);
         }
+        return holeCards;
     }
 
 }
