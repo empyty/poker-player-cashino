@@ -38,7 +38,7 @@ public class Player {
                 return currentBuyIn - bet + 50;
             } else if (maxBetValue > 0) {
                 System.out.println("Kupa");
-                return currentBuyIn - bet;
+                return currentBuyIn - bet + 100;
             }
         }
         if (bet + minimumRaise <= maxBetValue) {
