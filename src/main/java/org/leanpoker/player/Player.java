@@ -32,7 +32,7 @@ public class Player {
 
         if (currentBuyIn == bet) {
             System.out.println("Check");
-            return 0;
+            return 10;
         }
 
         if (bet + minimumRaise <= maxBetValue) {
