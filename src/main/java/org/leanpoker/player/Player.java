@@ -49,7 +49,7 @@ public class Player {
 
             return currentBuyIn - bet;
         } else if (maxBetValue >= 250) {
-            return currentBuyIn - bet;
+            return currentBuyIn - bet + 100;
         }
         return 0;
     }
