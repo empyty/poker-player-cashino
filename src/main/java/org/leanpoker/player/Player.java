@@ -9,7 +9,7 @@ public class Player {
     static final String VERSION = "Testing JSON objects - players";
 
     public static int betRequest(JsonElement request) {
-        System.out.println(request.getAsJsonObject().get("players")[4]);
+        System.out.println(request.getAsJsonObject().get("players").get(4));
         System.out.println(request.getAsJsonObject());
         return 10;
     }
