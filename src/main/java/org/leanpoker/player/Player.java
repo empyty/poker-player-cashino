@@ -12,22 +12,27 @@ import java.util.Map;
 
 public class Player {
 
-    static final String VERSION = "Testing JSON objects - players";
+    static final String VERSION = "Testing betting";
     private static final int playerId = 4;
 
     private static String name;
     private static List<Card> holeCards;
+    private static int maxBetValue;
 
     public static int betRequest(JsonElement request) {
         JsonObject requestObject = request.getAsJsonObject();
         JsonElement ourPlayer = requestObject.get("players").getAsJsonArray().get(playerId);
         JsonArray ourCards = ourPlayer.getAsJsonObject().get("hole_cards").getAsJsonArray();
         setHoleCards(ourCards);
-        System.out.println(CardUtils.areConsecutive(holeCards));
-        if (CardUtils.areSameSuit(holeCards)) {
-            System.out.println("Same suit.");
+//        int pot = requestObject.get("pot").getAsInt();
+        int bet = ourPlayer.getAsJsonObject().get("bet").getAsInt();
+        int minimumRaise = requestObject.get("minimum_raise").getAsInt();
+        maxBetValue = CardUtils.checkCards(holeCards);
+
+        if (bet + minimumRaise < maxBetValue) {
+            return minimumRaise;
         }
-        return 10;
+        return 0;
     }
 
     public static void showdown(JsonElement game) {

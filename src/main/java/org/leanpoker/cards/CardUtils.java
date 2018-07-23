@@ -14,20 +14,29 @@ public class CardUtils {
         return cards.get(0).getSuit() == cards.get(1).getSuit();
     }
 
-//    public static void checkCards(List playerCards) {
-//        if (playerCards[1] == playerCards[2]) {
-//
-//        } else if ((playerCards[1] = playerCards[2] + 1 || playerCards[2] = playerCards[1] + 1) ||
-//                (playerCards[1] == 13 && playerCards[2] == 1 || playerCards[1] == 1 && playerCards[2] == 13) &&
-//                        playerCards[1].suit == playerCards[2].suit) {
-//
-//        } else if (playerCards[1] = playerCards[2] + 1 || playerCards[2] = playerCards[1] + 1 ||
-//                (playerCards[1] == 13 && playerCards[2] == 1) || (playerCards[1] == 1 && playerCards[2] == 13)) {
-//
-//        } else if (playerCards[1].suit == playerCards[2].suit) {
-//
-//        } else {
-//
-//        }
-//    }
+    public static boolean areSameRank(List<Card> cards) {
+        return cards.get(0).getRank() == cards.get(1).getRank();
+    }
+
+    public static int cardRanksValue(List<Card> cards) {
+        return cards.get(0).getRank().getValue() + cards.get(1).getRank().getValue();
+    }
+
+    public static int checkCards(List<Card> cards) {
+        int maxBetValue = 300;
+        if (areSameRank(cards)) {
+            maxBetValue -= 50;
+        } else if (areConsecutive(cards)) {
+            if (areSameSuit(cards)) {
+
+            } else {
+                maxBetValue -= 150;
+            }
+        } else if (areSameSuit(cards)) {
+            maxBetValue -= 100;
+        } else {
+            maxBetValue = 100;
+        }
+        return maxBetValue;
+    }
 }
