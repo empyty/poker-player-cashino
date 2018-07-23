@@ -6,10 +6,10 @@ import java.util.Map;
 
 public class Player {
 
-    static final String VERSION = "Testing JSON objects";
+    static final String VERSION = "Testing JSON objects - players";
 
     public static int betRequest(JsonElement request) {
-        System.out.println(request.getAsJsonObject().get("round"));
+        System.out.println(request.getAsJsonObject().get("players").getAsJsonArray().get(3));
         return 10;
     }
 
