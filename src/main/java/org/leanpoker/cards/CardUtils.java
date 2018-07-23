@@ -10,6 +10,10 @@ public class CardUtils {
         return diff == 1 || diff == 12;
     }
 
+    public static boolean areSameSuit(List<Card> cards) {
+        return cards.get(0).getSuit() == cards.get(1).getSuit();
+    }
+
 //    public static void checkCards(List playerCards) {
 //        if (playerCards[1] == playerCards[2]) {
 //

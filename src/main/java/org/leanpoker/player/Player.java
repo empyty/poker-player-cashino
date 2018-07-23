@@ -24,6 +24,9 @@ public class Player {
         JsonArray ourCards = ourPlayer.getAsJsonObject().get("hole_cards").getAsJsonArray();
         setHoleCards(ourCards);
         System.out.println(CardUtils.areConsecutive(holeCards));
+        if (CardUtils.areSameSuit(holeCards)) {
+            System.out.println("Same suit.");
+        }
         return 10;
     }
 
