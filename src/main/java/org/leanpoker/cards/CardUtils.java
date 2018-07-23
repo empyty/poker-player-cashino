@@ -26,23 +26,17 @@ public class CardUtils {
     public static int checkHoleCards(List<Card> cards) {
         int maxBetValue = 300;
         if (areSameRank(cards)) {
-            System.out.println("Same rank.");
             maxBetValue -= 50;
         } else if (areConsecutive(cards)) {
             if (areSameSuit(cards)) {
-                System.out.println("Consecutive and same suit.");
             } else {
-                System.out.println("Consecutive.");
                 maxBetValue -= 150;
             }
         } else if (areSameSuit(cards)) {
-            System.out.println("Same suit.");
             maxBetValue -= 100;
         } else {
-            System.out.println("Gowno");
             maxBetValue = 100;
         }
-        System.out.println(maxBetValue);
         return maxBetValue;
     }
 
@@ -60,7 +54,7 @@ public class CardUtils {
                 } else if (areConsecutive(combination)) {
                     increaseBet += 25;
                 } else {
-                    increaseBet -= 100;
+                    increaseBet -= 50;
                 }
             }
         }
