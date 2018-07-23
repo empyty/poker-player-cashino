@@ -28,6 +28,7 @@ public class Player {
             holeCards.add(card);
             System.out.println(card);
         }
+        System.out.println(holeCards);
         return 10;
     }
 
