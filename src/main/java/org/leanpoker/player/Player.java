@@ -27,9 +27,15 @@ public class Player {
 //        int pot = requestObject.get("pot").getAsInt();
         int bet = ourPlayer.getAsJsonObject().get("bet").getAsInt();
         int minimumRaise = requestObject.get("minimum_raise").getAsInt();
+        int currentBuyIn = requestObject.get("current_buy_in").getAsInt();
         maxBetValue = CardUtils.checkCards(holeCards);
 
-        if (bet + minimumRaise < maxBetValue) {
+        if (currentBuyIn == bet) {
+            System.out.println("Check");
+            return 0;
+        }
+
+        if (bet + minimumRaise <= maxBetValue) {
             return minimumRaise;
         }
         return 10;
