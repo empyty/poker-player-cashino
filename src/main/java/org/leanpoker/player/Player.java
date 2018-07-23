@@ -16,7 +16,7 @@ public class Player {
     private static final int playerId = 4;
 
     private static String name;
-    private static List<Card> holeCards = new ArrayList<>(2);
+    private static List<Card> holeCards;
 
     public static int betRequest(JsonElement request) {
         JsonObject requestObject = request.getAsJsonObject();
@@ -31,6 +31,7 @@ public class Player {
     }
 
     public static void setHoleCards(JsonArray playerCards) {
+        holeCards = new ArrayList<>(2);
         for (JsonElement jsonCard : playerCards) {
             String rank = jsonCard.getAsJsonObject().get("rank").getAsString();
             String suit = jsonCard.getAsJsonObject().get("suit").getAsString();
