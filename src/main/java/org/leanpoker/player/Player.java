@@ -9,8 +9,8 @@ public class Player {
     static final String VERSION = "Default Java folding player";
 
     public static int betRequest(JsonElement request) {
+        System.out.println("dzila nie dzila, podzila");
         System.out.println(request.toString());
-        System.out.println("dzila");
         return 10;
     }
 
