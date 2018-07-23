@@ -55,12 +55,12 @@ public class CardUtils {
                 combination.add(communityCard);
                 if (areSameRank(combination)) {
                     increaseBet += 100;
-                }
-                if (areSameSuit(combination)) {
+                } else if (areSameSuit(combination)) {
                     increaseBet += 50;
-                }
-                if (areConsecutive(combination)) {
+                } else if (areConsecutive(combination)) {
                     increaseBet += 25;
+                } else {
+                    increaseBet -= 100;
                 }
             }
         }
