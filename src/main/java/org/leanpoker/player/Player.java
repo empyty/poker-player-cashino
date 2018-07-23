@@ -34,7 +34,7 @@ public class Player {
             }
             return currentBuyIn - bet + minimumRaise;
         }
-        return 10;
+        return 0;
     }
 
     public static void showdown(JsonElement game) {
