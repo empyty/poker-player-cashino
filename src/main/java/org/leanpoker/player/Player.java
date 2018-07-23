@@ -8,13 +8,13 @@ public class Player {
 
     static final String VERSION = "Testing JSON objects - players";
 
+    private String name;
+
     public static int betRequest(JsonElement request) {
-<<<<<<< HEAD
         System.out.println(request.getAsJsonObject().get("players").getAsJsonArray().get(4));
-=======
+
         System.out.println(request.getAsJsonObject().get("players").getAsJsonArray());
->>>>>>> master
-        System.out.println(request.getAsJsonObject());
+
         return 10;
     }
 
