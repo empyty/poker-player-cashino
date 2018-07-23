@@ -4,6 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import org.leanpoker.cards.Card;
+import org.leanpoker.cards.CardUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +23,7 @@ public class Player {
         JsonElement ourPlayer = requestObject.get("players").getAsJsonArray().get(playerId);
         JsonArray ourCards = ourPlayer.getAsJsonObject().get("hole_cards").getAsJsonArray();
         setHoleCards(ourCards);
+        System.out.println(CardUtils.areConsecutive(holeCards));
         return 10;
     }
 
