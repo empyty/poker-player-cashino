@@ -26,16 +26,16 @@ public class Player {
         int minimumRaise = requestObject.get("minimum_raise").getAsInt();
         int currentBuyIn = requestObject.get("current_buy_in").getAsInt();
 
-        int maxBetValue = CardUtils.checkCards(holeCards);
+        int maxBetValue = CardUtils.checkHoleCards(holeCards);
 
         if (bet + minimumRaise <= maxBetValue) {
             if (currentBuyIn == bet && bet != 0) {
                 System.out.println("Check");
                 return 0;
             }
-            if (communityCards.size() > 0) {
-                return currentBuyIn - bet + minimumRaise;
-            }
+//            if (communityCards.size() > 0) {
+//                return currentBuyIn - bet + minimumRaise;
+//            }
             return currentBuyIn - bet;
         }
         return 0;

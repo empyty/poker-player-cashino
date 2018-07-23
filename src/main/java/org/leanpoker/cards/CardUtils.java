@@ -22,7 +22,7 @@ public class CardUtils {
         return cards.get(0).getRank().getValue() + cards.get(1).getRank().getValue();
     }
 
-    public static int checkCards(List<Card> cards) {
+    public static int checkHoleCards(List<Card> cards) {
         int maxBetValue = 300;
         if (areSameRank(cards)) {
             System.out.println("Same rank.");
@@ -43,5 +43,9 @@ public class CardUtils {
         }
         System.out.println(maxBetValue);
         return maxBetValue;
+    }
+
+    public static int checkCommunityCards(List<Card> holeCards, List<Card> communityCards) {
+        return 0;
     }
 }
