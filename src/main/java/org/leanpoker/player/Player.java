@@ -6,11 +6,10 @@ import java.util.Map;
 
 public class Player {
 
-    static final String VERSION = "Default Java folding player";
+    static final String VERSION = "Testing JSON objects";
 
     public static int betRequest(JsonElement request) {
-        System.out.println(request.toString());
-        System.out.println("dzila");
+        request.getAsJsonObject().get("round");
         return 10;
     }
 
